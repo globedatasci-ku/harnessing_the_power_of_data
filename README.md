@@ -1,36 +1,47 @@
 # Harnessing the power of data
-In fall of 2021, we embarked on a semester-long, project-based arc in the working group to empower folks in R. Our goal is to get folks to move from the "I have a messy database, what do I do?" to generating organized data analysis projects in R.
+In fall of 2021, we embarked on a semester-long, project-based arc in the working group to empower folks in R. Our goal is to get folks to move from the "I have a messy database, and my advisor told me I should learn R to analyse it. What do I do?" to generating organized data analysis projects in R.
 
-## The Semester's Agenda
+## The Semester's Agenda (Rough and Very Subject to Change)
 
 ### Session 1
-Github and R projects
-    Helpful Resources:
-        https://happygitwithr.com/
-        https://rstats.wtf/
+* Introductions
+* Github
+    + https://happygitwithr.com/
+* R projects
+   + https://rstats.wtf/
 
 ### Session 2
-How to load and clean data
+* Loading data
+   + Data structures and why they matter
+* Cleaning data
+* Practice
 
 ### Session 3
-Practice loading and cleaning data
+* Basic analysis (What do these data even look like?)
+* Descriptive statistics
+* Summary statistics
 
 ### Session 4
-Basic stats and summary stat to figure out what you have in the data
+* Group work: forming a hypothesis and doing summary stats
+* Formulate a plan
+    + What functions do you need?
+    + What functions are you missing?
 
 ### Session 5
-Group work on forming a hypothesis and doing summary stats
-Find a way for them to write down what they want to do and what functions they are missing
+* Learning new packages and functions
+    + Where to start?
+    + How to find answers
+    + How to ask questions
 
 ### Session 6
-Talk about how you learn a new package or a new function
+* Generating markdown reports
+* Practice writing a report on some class work 
 
 ### Session 7
-Generating markdown reports. Have them write a report on some class work 
+* Group work on a project
 
-### Session 8
-Group work on a project
-
-### Session 9 
-Summarize and reflect on the semester
+### Session 8 
+* Present group work
+* Summarize and reflect on the semester
+* Brainstorming topics of interest
 
