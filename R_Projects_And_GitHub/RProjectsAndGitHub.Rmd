@@ -1,5 +1,5 @@
 ---
-title: "tips to tame youR dRagon"
+title: "R Projects and Github"
 subtitle: "Hannah L. Owens"
 author: "@HannahOish"
 date: "`r Sys.Date()`"
@@ -22,249 +22,205 @@ output:
 </style>
 
 
-# Does your code have you tangled up in knots?
+# Reflexive project management
 
 <div align="center">
-<img src="https://ehillus.files.wordpress.com/2014/10/tangled-dragon.jpg" height=400>
+<img src="https://thatwhitepaperguy.com/wp-content/uploads/2016/08/bigstock-Messy-File-Document-And-Office-244406956.jpg" height=400>
 </div>
 
 ---
 
-# Tip 1: Take a deep breath.
+# Reflective project management
+
+<div align="center">
+<img src="https://www.talkingmats.com/wp-content/uploads/2018/02/transitions.gif" height=400>
+</div>
+
+---
+
+# Part 1: Git and GitHub
+
+<div align="center">
+<img src="https://www.quotemaster.org/images/e9/e9cba00cc4fb1e6163b391d0d4ccc01d.jpeg" height=400>
+</div>
+
+---
+# What is Git?
 
 .pull-left[
-* When you have a problem with a complicated piece of code, take a minute to focus and clear your mind.
+* A method of version control
+* Records of changes
+    + What
+    + When
+    + *Why*
 ]
 
 .pull-right[
-<img src="https://techsupport.foreverwarm.com/wp-content/uploads/2011/03/frustrated-computer-guy.png" width=300>
+<img src="https://properdiscordblog.files.wordpress.com/2012/09/screen-shot-2012-09-12-at-08-38-56.png" width=400>
 ]
 
 ---
 
-# Tip 2: Start with a clean slate.
+# What is GitHub?
 
 .pull-left[
-* Open a new script document.
-* Clear you environment.
-```{r clear environment}
-rm(list=ls())
-```
+* A cloud-based repository
+* A collaboration tool
+  + Code sharing
+  + Networking
+  + Documentation
+  + Bug reporting
+* [GitHub Tour](https://github.com/hannahlowens)
 ]
 
 .pull-right[
-<img src="https://www.bigimmigrationlawblog.com/wp-content/uploads/sites/365/2020/11/iStock-1023471968-330x248.jpg" width=300>
+<img src="https://media.wired.com/photos/5b888623cde746582fe9ff7f/master/w_2500,h_1667,c_limit/20130925-GITHUB-NEW-OFFICE-008edit.jpg" width=400>
 ]
 
 ---
 
-# Tip 3: Be patient
+# Comparison of Git and Github
+
+<div align="center">
+<img src="https://blog.devmountain.com/hs-fs/hubfs/Imported_Blog_Media/Gitvs_Github-1a-1.jpg?width=600&name=Gitvs_Github-1a-1.jpg">
+</div>
+
+---
+
+# Ok, I'm sold. Now what?
+
+Step 1: Install git.  
+  + [GitHub's Guide to Git](https://github.com/git-guides/install-git)  
+
+---
+
+# Ok, I'm sold. Now what?
+
+Step 1: Install git.  
+Step 2: Sign up for GitHub.  
+  + [Link to GitHub main page](https://github.com/)  
+
+---
+
+# Ok, I'm sold. Now what?
+
+Step 1: Install git.  
+Step 2: Sign up for GitHub.  
+Step 3: Set up a repository.  
+  + [Link to GitHub repository setup](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)
+
+---
+
+# Part 2: R Projects
+
+<div align="center">
+<img src="https://www.vladmedenica.com/img/rproject-icon.png" height=400>
+</div>
+
+---
+
+# What is an R Project?
 
 .pull-left[
-* Go through the code *one* line at a time.
-* Highlight, then hit "Control" + "Enter" or "Command" + "Return"
+* A method of organization
+* Associated with a project directory
+  + Keeps everything together in one place
+* A file type
+  + `.Rproj`
 ]
 
 .pull-right[
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Enter-key.jpg" width=300>
+<img src="https://static.wikia.nocookie.net/lotr/images/8/8b/DOiAi2WUEAE3A1Y.0.jpg" width=400>
 ]
 
 ---
 
-
-# Tip 4: Keep your lines short
+# Starting a new R Project
 
 .pull-left[
-* No one has ever won an award for shortest R code (that I know of)
-* Make a series of simple statements.
+* From existing GitHub repository
+  + Live demo!
+  + [Happy Git with R article](https://happygitwithr.com/rstudio-git-github.html)
 ]
 
 .pull-right[
-```{r simple statements, eval=FALSE}
-# Good
-a <- "one"
-b <- "two"
-d <- "three"
-test <- c(a,b,d)
-print(test)
-
-#Bad
-print(paste(c(a="one", b="two", d="three")))
-```
+<img src="http://www.rstudio.com/images/docs/projects_new.png" width=400>
 ]
 
 ---
 
-# Tip 5: Comment early, Comment often
+# Starting a new R Project
 
 .pull-left[
-* Use them for metadata
-* Explain code chunks
-* Keep them brief
-* Keep them relevant
-* Keep it constructive
-* Can be used to debug
-* OK, maybe don't use them ALLLL the time
+* From existing GitHub repository
+  + Live demo!
+  + [Happy Git with R article](https://happygitwithr.com/rstudio-git-github.html)
+* From scratch
+  + This can be annoying
+  + [But if you want to try doing it this way](https://intro2r.com/setting-up-a-project-in-rstudio.html#opt2)
 ]
 
 .pull-right[
-<img src="https://img.devrant.com/devrant/rant/c_662893_Sw1f4.jpg"  height=400>
+<img src="http://www.rstudio.com/images/docs/projects_new.png" width=400>
 ]
 
 ---
 
-# Tip 6: Use print() to show exactly what is happening and when
-.pull-left[
-```{r print_statements, eval = F}
-testFunction <- function(y){
-  if (y %% 2==0){
-    return("notOdd")
-  } else return()
-}
+# Basic Organization
 
-x <- c()
-for(i in 1:3){
-  print(i)
-  print("executing function")
-  newI <- testFunction(i)
-  print(paste("newI: ", newI))
-  print("appending new i")
-  x <- c(x,newI)
-  print(x)
-}
-```
+.pull-left[
+* Keep things simple
+* Like this -->
 ]
 
 .pull-right[
-```{r print_statements_o, echo=FALSE}
-testFunction <- function(y){
-  if (y %% 2==0){
-    return("notOdd")
-  } else return()
-}
-
-x <- c()
-for(i in 1:3){
-  print(i)
-  print("executing function")
-  newI <- testFunction(i)
-  print(paste("newI: ", newI))
-  print("appending new i")
-  x <- c(x,newI)
-  print(x)
-}
-```
+<img src="https://i1.wp.com/raw.githubusercontent.com/martinctc/blog/master/images/RPROJECT_2000dpi.png?w=578&ssl=1" width=400>
 ]
 
 ---
 
-# Tip 7: Use unique indexes for every loop
+# Pushing and pulling your project
+
 .pull-left[
-* Do not use `i` as a universal index
-* If you don't change the index for every loop, you could accidentally recycle something
-* Also it will turn nested loops into a hot mess in no time flat.
+* Think of it like hitting "Save".
+* "Pull" downloads updates from GitHub
+* "Commit" accrues local changes
+* "Push" sends updates to GitHub
 ]
 
 .pull-right[
-<img src="https://live.staticflickr.com/7229/7162673224_d417dce68a_z.jpg"  height=400>
+<img src="https://i.ytimg.com/vi/0nqJKEh3YCc/maxresdefault.jpg" width=400>
 ]
 
 ---
 
-# Tip 8: Break out of the loop!
+# Two important files in any project
+
 .pull-left[
-* Turn your loops into functions
-* Functions are easier to debug
-* Functions are faster
+* `.gitignore`
+* `README.md`
+* Live tour
 ]
 
 .pull-right[
-<img src="https://freshstitches.com/wp-content/uploads/2012/11/cut-loop-stitch-1024x768.jpg"  height=400>
+<img src="https://i.ytimg.com/vi/0nqJKEh3YCc/maxresdefault.jpg" width=400>
 ]
 
 ---
 
-# Tip 9: If you *have* to loop, make sure your code works first
-.pull-left[
-* Go through it line by line
-* Be patient
-]
+# More resources
 
-.pull-right[
-<img src="https://i.insider.com/5b76eda93cccd123008b45d1?width=1000&format=jpeg&auto=webp"  height=400>
-]
+* [R for Data Science Chapter on R Projects](https://r4ds.had.co.nz/workflow-projects.html)
+* [R Studio article on R Projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+
 ---
 
-# Tip 10: Simplify your piping operations
-.pull-left[
-* Start with basic steps
-* Run lines line by line
-]
-
-.pull-right[
-```{r pipes, eval = F}
-library(magrittr)
-a <- seq(1,10, by = 2)
-
-# Good
-a %>% log() %>%
-    diff() %>%
-    exp() %>%
-    round(1)
-
-# Bad
-a %>% log() %>% diff() %>% exp() %>% round(1)
-```
-]
----
-# Tip 11: Try
-.pull-left[
-* You may have to loop over messy data
-* try() allows the loop to keep going instead of stalling
-* Skips over problem and produces error message
-]
-
-.pull-right[
-```{r bad loop function}
-inputs <-  list(1, 2, 4, -5, 'oops', 0, 10)
-
-# With try
-for(input in inputs) {
-  try(print(paste("log of", input, "=", log(input))))
-}
-
-```
-]
----
-
-# Tip 12: tryCatch
-.pull-left[
-* "Fancy" version of try
-* You can produce custom errors and warnings that are more informative
-* Wrap in a function for maximum effect
-]
-.pull-right[
-```{r tryCatch example}
-robustLog = function(x) {
-  tryCatch(log(x),
-           warning = function(w) {print(paste("negative argument", x))
-                                    log(-x)},
-           error = function(e) {print(paste("non-numeric argument", x))
-                                  NaN}) 
-}
-
-for(input in inputs) {
-   print(paste("robust log of", input, "=", robustLog(input)))
-}
-```
-]
----
 .left-column[
 # Fin.
 ]
 
 .right-column[
-<img src="https://pyxis.nymag.com/v1/imgs/76a/792/ca8c6ae202df791dcd06c700e9650882f9-19-how-to-train-dragon.rhorizontal.w700.jpg">
+<img src="https://octodex.github.com/images/original.png">
 ]
 
 
