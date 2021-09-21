@@ -1,0 +1,322 @@
+---
+title: "Examples for useful data wrangling functions"
+author: "Maria Novosolov"
+date: "9/21/2021"
+output: rmdformats::readthedown
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+# Classic one's (`dplyr` package)
+
+* `select` - allows you to select or deselect columns
+
+* `filter` - allows you to filter rows by values in some columns
+
+* `mutate` - allows you to change anything, either values within columns or adding new columns with new values
+
+
+
+# Some simple but useful
+
+* `clean_names` (from `janitor`) - changes all the column names to easy to deal with R format
+
+* `rename` (from `dplyr`)- lets you rename a column, or many columns
+
+* `na_if` (from `dplyr`) - allows you to replace any pattern with NA (a good way of getting rid of annoying characters that you forgot to remove)
+
+* `drop_na` (from `tidyr`)- allows you to remove all the rows with NA
+
+* `relocate` (from `dplyr`) - allows you to relocate columns in the dataset
+
+* `distinct` - Allows to remove duplicated rows or retain unique values in a column
+
+
+# Within data manipulations
+
+* `case_when` (from `dplyr`) - allows you to manipulate the data inside the columns based on conditions. Used inside mutate
+
+* `separate` (from `tidyr`) - allows you to separate a column to multiple columns (similar to "text-to-column" option in excel)
+
+
+
+# Manipulate data structure
+
+* `pivot_longer` - creates a long format from your dataframe
+
+* `pivot_wider` - creates a wide format from your data
+
+* `group_by` - lets you group the data based on a categorical variable or multiple ones
+
+* `nest` - lets you create a subset of datasets in the same table
+
+* `tally` - allows you to count how many rows you have in a group
+
+* `across` - lets you do operations across multiple columns
+
+
+
+# Examples for each of the functions
+
+## `select` 
+
+```{r include=FALSE}
+data(iris)
+iris<- as_tibble(iris)
+```
+
+### Option 1
+```{r}
+iris %>% 
+  select(Petal.Length) 
+```
+
+
+### Option 2
+```{r}
+iris %>% 
+  select(-Petal.Length) 
+```
+
+
+## `filter` 
+
+### Option 1
+
+```{r}
+iris %>% 
+  filter(Species == "setosa")
+```
+
+
+
+### Option 2
+
+```{r}
+iris %>% 
+  filter(Petal.Length > 1.5)
+```
+
+
+
+
+## `mutate`
+
+###  Option 1
+```{r}
+iris %>% 
+  mutate(Petal.Length = Petal.Length*100)
+```
+
+
+
+### Option 2
+
+```{r}
+iris %>% 
+  mutate(new.Petal.Length = Petal.Length*100)
+```
+
+
+
+
+
+## `janitor::clean_names`
+
+Changes all the column names to easy to deal with R format
+```{r}
+iris %>% 
+  janitor::clean_names()
+```
+
+
+
+## `dplyr::rename`
+
+### Change one column
+
+```{r}
+iris %>% 
+  dplyr::rename(plant_species = Species)
+```
+
+
+
+
+### Give all columns a new name
+
+```{r}
+newnames<- c("X1","X2","X3","X4","X5")
+oldnames<- names(iris)
+iris %>% 
+  dplyr::rename_with(~newnames,oldnames)
+
+```
+
+
+
+### Rename based on condition
+
+```{r}
+iris %>% 
+  rename_with(toupper, starts_with("Petal"))
+```
+
+
+
+## `dplyr::na_if`
+
+Allows you to replace any pattern with NA (a good way of getting rid of annoying characters that you forgot to remove). 
+Used mainly inside mutate
+
+```{r}
+iris %>% 
+  mutate(species_new = dplyr::na_if(x = Species,y = "setosa"))
+```
+
+
+
+## `tidyr::drop_na`
+
+```{r}
+iris %>% 
+  mutate(species_new = dplyr::na_if(x = Species,y = "setosa")) %>% 
+  drop_na()
+```
+
+
+
+## `dplyr::relocate` 
+
+### Option 1
+
+```{r}
+iris %>% 
+  relocate(Species)
+```
+
+
+
+### Option 2
+
+```{r}
+iris %>% 
+  relocate(Species, .after = Sepal.Width)
+```
+
+
+### Option 3
+
+```{r}
+iris %>% 
+  relocate(Sepal.Length,.after = everything())
+```
+
+
+
+## `dplyr::distinct` 
+
+Remember: If you remove all duplicates based on column it will ignore that other columns have unique values. `.keep_all = T` is needed to retain the other columns as well
+
+### Option 1
+```{r}
+iris %>% 
+  distinct(Species,.keep_all = T)
+```
+
+
+### Option 2
+
+```{r}
+iris %>% 
+  select(Species) %>% 
+  distinct()
+```
+
+
+
+## `dplyr::case_when`
+
+```{r}
+iris %>% 
+  mutate(Species = as.character(Species)) %>% 
+  mutate(new_species = case_when(Species=="setosa"~"setosa_who",TRUE~Species))
+```
+
+
+
+## `tidyr::separate`
+
+```{r}
+iris %>% 
+  mutate(Species = paste(Species,"something",sep="_"))
+```
+
+
+```{r}
+iris %>% 
+  mutate(Species = paste(Species,"something",sep="_")) %>% 
+  separate(Species,into = c("Speices","extra")) 
+```
+
+## `pivot_longer` 
+
+```{r}
+iris %>% 
+  pivot_longer(cols = -Species,names_to = "leaf_traits",values_to = "value")
+
+```
+
+## `pivot_wider`
+
+```{r}
+iris %>% 
+  mutate(id = seq(1,nrow(.))) %>% 
+  pivot_longer(cols = -c(id,Species),names_to = "leaf_traits",values_to = "value") 
+```
+
+
+```{r}
+iris %>% 
+  mutate(id = seq(1,nrow(.))) %>% 
+  pivot_longer(cols = -c(id,Species),names_to = "leaf_traits",values_to = "value") %>% 
+  pivot_wider(names_from = leaf_traits,values_from = value)
+```
+
+
+
+## `group_by` / `tally` / `across`
+
+Usually coupled with other function like `mutate`, `summarize`, `nest`, or `tally`
+
+```{r}
+iris %>% 
+  group_by(Species) %>% 
+  tally()
+```
+
+
+
+```{r}
+iris %>% 
+  group_by(Species) %>% 
+  summarize(across(1:4, mean))
+```
+
+
+
+
+## `nest`
+
+A powerful tool to create sub datasets within a tibble. Together with `map` you can do multiple operations on it and then unnset it in the end 
+
+```{r}
+iris %>% 
+  group_by(Species) %>% 
+  nest() 
+```
+
