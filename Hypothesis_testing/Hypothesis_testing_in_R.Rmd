@@ -1,0 +1,162 @@
+---
+title: "Hypothesis testing in R"
+subtitle: "Maria Novosolov"
+date: "`r format(Sys.Date(),'%d-%m-%Y')`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "custom-fonts.css"]
+    chakra: "libs/remark-latest.min.js"
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: '16:9'
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(tidyverse)
+library(ggplot2)
+library(icon)
+```
+
+
+
+# What we'll be working on:
+
+* How to formulate a hypothesis
+
+* How to figure out what you don't know
+
+* How to bridge the gap in your knowledge
+
+---
+class: center, middle, inverse
+
+# Before we start
+
+---
+class: center, middle
+
+# Being an expert in R is:
+
+<img src="img/googling.jpeg" width=40%>
+
+---
+class: center, middle
+
+# Some more insperations:
+
+<img src="img/coding.jpeg" width=40%>
+
+---
+class: center, middle
+
+<img src="img/stack_overflow.jpg" width=70%>
+---
+class: center, middle, inverse
+
+# How to formulate a hypothesis
+
+---
+class: center, middle
+
+# What is a hypothesis?
+
+a supposition or proposed explanation made on the basis of limited evidence as a starting point for further investigation.
+
+(Dictionary definition)
+---
+
+# Two ways to formulate a hypothesis:
+
+1. Look at the data and come up with questions
+
+2. Come up with questions and look at the data
+
+
+---
+class: center, middle, inverse
+
+# We will look at the data and come up with questions
+
+---
+
+# Some tips
+
+* Do a quick google scholar about fungi on trees and read some of the titles
+
+* Plot some correlation plots between continuous columns
+
+* Plot some box plot between continuous and categorical columns
+
+* Maybe a PCA?
+
+* Identify what migh look like a pattern
+
+---
+class: center, middle
+
+### Our data: Fungi on trees (or your data)
+
+### Lets do some summary statistics on it
+
+---
+class: center, middle, exercise
+
+# Your turn!
+
+### Find a buddy and sit together for 15 minutes to run some summary stats and come up with a question about a possible pattern that might be in the data
+---
+
+class: center, middle, inverse
+
+# How to figure out what you don't know
+
+---
+
+# Steps to get you started:
+
+* What data are you going to use?
+
+* Do you know which statistical test to do to test your hypothesis?
+
+* Which words can you use to google it?
+
+
+---
+class: center, middle, exercise
+
+# Your turn! 
+
+Sit with your buddy and try to figure out which statistical test you should use. If you don't know that many test try to think what you can google to help you with it. 
+
+Ask us for help!
+
+---
+
+# How do we do it in R?
+
+* Once you figured out what test to do it's easy to use the same googling method to find out how to do it in R
+
+* General google phrase: **How to ... in R** Will usually come back with a huge amount of resources
+
+* Now all you need is patience to go through the link and find one that you can understand
+
+---
+
+class: center, middle, exercise
+
+Your turn!
+
+Try to run one statistical test to answer your question and make a plot out of it
+
+
+---
+class: center, middle
+
+<img src="img/actual_coding.png" width=40%>
+
+
+
+
+
