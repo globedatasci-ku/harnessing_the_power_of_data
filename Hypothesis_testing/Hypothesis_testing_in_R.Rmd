@@ -80,7 +80,13 @@ class: center, middle, inverse
 # We will look at the data and come up with questions
 
 ---
+class: center, middle
 
+### Our data: Fungi on trees (or your data)
+
+### Lets do some summary statistics on it
+
+---
 # Some tips
 
 * Do a quick google scholar about fungi on trees and read some of the titles
@@ -91,7 +97,7 @@ class: center, middle, inverse
 
 * Maybe a PCA?
 
-* Identify what migh look like a pattern
+* Identify what might look like a pattern
 
 ---
 class: center, middle
