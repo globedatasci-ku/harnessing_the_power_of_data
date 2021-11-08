@@ -1,0 +1,81 @@
+---
+title: "How to learn new packages and functions"
+subtitle: "Maria Novosolov"
+date: "`r format(Sys.Date(),'%d-%m-%Y')`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "custom-fonts.css"]
+    chakra: "libs/remark-latest.min.js"
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: '16:9'
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(tidyverse)
+library(ggplot2)
+library(icon)
+```
+
+
+
+# What we'll be working on:
+
+* How the help file is structured
+
+* What is important to look at
+
+* Tips on how to figure our what a function does
+
+* Practice
+
+---
+class: center, middle, inverse
+
+# R help files
+
+---
+
+# How to open help file
+
+* ?function
+
+* Stand on the function and click F1
+
+* Google
+---
+
+# CRAN help files
+
+https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary
+
+# Tidyverse help files
+
+https://readr.tidyverse.org/reference/write_delim.html
+
+---
+# Some tips
+
+* Read the description and then go to the examples
+
+* Use basic datasets in R to figure out what the function does (e.g. cars or iris)
+
+* Use google and stack overflow to find more examples and clarifications
+
+
+---
+class: exercise
+
+# Your turn!
+
+### Each group will gets a function. You need to find the answers to the following questions:
+
+1. What package(s) contain a function with this name?
+2. What does the function do?
+3. What are the arguments for the function?
+4. Is there any other relevant information about the function?
+5. What is an example of how to use the function?
+
+
